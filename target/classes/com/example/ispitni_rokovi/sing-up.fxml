@@ -52,7 +52,7 @@
                <font>
                   <Font name="System Bold" size="13.0" />
                </font></Button>
-            <PasswordField fx:id="tf_password" layoutX="35.0" layoutY="268.0" prefHeight="25.0" prefWidth="307.0" />
+            <PasswordField fx:id="pf_password" layoutX="35.0" layoutY="268.0" prefHeight="25.0" prefWidth="307.0" />
          </children></AnchorPane>
       <AnchorPane prefHeight="400.0" prefWidth="299.0" style="-fx-background-color: #8261FF;">
          <children>

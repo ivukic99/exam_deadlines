@@ -59,7 +59,7 @@
                   <Font name="Berlin Sans FB" size="27.0" />
                </font>
             </Label>
-            <PasswordField fx:id="tf_password" layoutX="32.0" layoutY="247.0" prefHeight="25.0" prefWidth="287.0" />
+            <PasswordField fx:id="pf_password" layoutX="32.0" layoutY="247.0" prefHeight="25.0" prefWidth="287.0" />
          </children>
       </AnchorPane>
    </children>

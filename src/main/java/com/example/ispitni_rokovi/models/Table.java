@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -190,6 +192,37 @@ public class Table {
         }
     }
 
+    public static String getUserId(Class cls, String email) throws Exception {
+        String tableName = getTableName(cls);
+        String SQL = "SELECT id FROM " + tableName  +" WHERE email = " + "'" + email + "'";
+        Statement stmt = Database.CONNECTION.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL);
+        if (rs.next()){
+            return rs.getString("id");
+        } else {
+            throw new Exception("No data with that id");
+        }
+    }
+
+    public static boolean checkUser(Class cls, String email, String password) throws Exception {
+        String tableName = getTableName(cls);
+        String SQL = "SELECT * FROM " + tableName +" WHERE email = " + "'" + email + "'" + " AND password = " + "'" + password + "'" ;
+        Statement stmt = Database.CONNECTION.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL);
+        if (rs.next()){
+            Object obj = Class.forName(cls.getName()).newInstance();
+            Class<?> otherCls = obj.getClass();
+            for (Field f : otherCls.getDeclaredFields()){
+                f.set(obj, rs.getObject(f.getName()));
+            }
+            return true;
+        } else {
+            System.out.println("No data with that email and password");
+            return false;
+        }
+    }
+
+
     public static List<?> list(Class cls) throws Exception {
         String tableName = getTableName(cls);
         String SQL = "SELECT * FROM " + tableName;
@@ -209,3 +242,25 @@ public class Table {
     }
 
 }
+    /*public static List<?> getName(Class cls) throws Exception {
+        String tableName = getTableName(cls);
+        String SQL = "SELECT * FROM " + tableName;
+        Statement stmt = Database.CONNECTION.createStatement();
+        ResultSet rs = stmt.executeQuery(SQL);
+        User user = new User();
+        List<Object> list = new ArrayList<>();
+        while (rs.next()){
+            Object obj = Class.forName(cls.getName()).newInstance();
+            Class<?> otherCls = obj.getClass();
+            for (Field f : otherCls.getDeclaredFields()){
+                f.set(obj, rs.getObject(f.getName()));
+            }
+            user.setName(rs.getString("name"));
+            user.setSurname(rs.getString("surname"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("password"));
+            list.add(user.getName());
+        };
+            System.out.println("knfdlnsa " + list);
+        return list;
+    }*/

@@ -1,11 +1,9 @@
 package com.example.ispitni_rokovi;
 
-import com.example.ispitni_rokovi.models.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class Program extends Application {
@@ -32,14 +30,11 @@ public class Program extends Application {
 
     public static void main(String[] args) throws Exception {
         launch();
-        /*Table.create(User.class);
-        Table.create(Faculty.class);
-        Table.create(Study_group.class);
-        Table.create(Collegium.class);
-        Table.create(StudyGroup_collegium.class);
-        Table.create(Exam_deadline.class);
+        //Table.create(User.class);
+        //Table.create(Collegium.class);
+        //Table.create(Exam_deadline.class);
 
-        User user = new User();
+        /*User user = new User();
         user.setName("Test223");
         user.setSurname("Testic123");
         user.setEmail("test.testic123@fpmoz.sum.ba");

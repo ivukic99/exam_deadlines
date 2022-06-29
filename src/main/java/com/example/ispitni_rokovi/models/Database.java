@@ -38,7 +38,7 @@ public class Database{
     private static String hostname = "localhost";
     private static String user = "root";
     private static String password = "";
-    private static String database = "ispitni_rokovi";
+    private static String database = "puj_test";
 
     public static Connection CONNECTION = null;
 

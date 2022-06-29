@@ -13,9 +13,11 @@ public class Exam_deadline extends Table{
     @Entity(type="VARCHAR", size=50)
     String cancel_exam_date;
 
-    @ForeignKey(table = "collegium", attribute = "id")
+    /*@ForeignKey(table = "collegium", attribute = "id")
     @Entity(type = "INTEGER", size = 32)
-    int collegium_id;
+    int collegium_id;*/
+    @Entity(type="VARCHAR", size=50)
+    String collegium_name;
 
     @ForeignKey(table = "user", attribute = "id")
     @Entity(type = "INTEGER", size = 32)
@@ -53,12 +55,12 @@ public class Exam_deadline extends Table{
         this.cancel_exam_date = cancel_exam_date;
     }
 
-    public int getCollegium_id() {
-        return collegium_id;
+    public String getCollegium_name() {
+        return collegium_name;
     }
 
-    public void setCollegium_id(int collegium_id) {
-        this.collegium_id = collegium_id;
+    public void setCollegium_name(String collegium_name) {
+        this.collegium_name = collegium_name;
     }
 
     public int getUser_id() {

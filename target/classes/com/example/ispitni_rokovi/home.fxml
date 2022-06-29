@@ -6,18 +6,46 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ispitni_rokovi.controllers.HomeController">
    <children>
-      <AnchorPane prefHeight="52.0" prefWidth="600.0" style="-fx-background-color: #8261FF;">
+      <AnchorPane prefHeight="43.0" prefWidth="600.0" style="-fx-background-color: #8261FF;">
          <children>
-            <Button layoutX="518.0" layoutY="13.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: transparent;" text="ODJAVA" textFill="WHITE">
+            <Button layoutX="517.0" layoutY="9.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: transparent;" text="ODJAVA" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="lb_email" layoutX="23.0" layoutY="18.0" text="Ime Prezime" textFill="WHITE">
+            <Button fx:id="delete_btn" disable="true" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteExam_deadline" style="-fx-background-color: #5594 #8261FFfa;" text="OBRIŠI  ROK" textFill="WHITE">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Berlin Sans FB" size="12.0" />
                </font>
-            </Label>
+            </Button>
          </children></AnchorPane>
+      <AnchorPane prefHeight="63.0" prefWidth="600.0" style="-fx-background-color: white;">
+         <children>
+            <Button fx:id="btn_submit" layoutX="533.0" layoutY="25.0" mnemonicParsing="false" onAction="#submitDeadline" text="Potvrda" />
+            <ChoiceBox fx:id="cb_coll" layoutX="12.0" layoutY="25.0" prefHeight="25.0" prefWidth="87.0" />
+            <DatePicker fx:id="df_exam_date" layoutX="201.0" layoutY="25.0" prefHeight="25.0" prefWidth="104.0" />
+            <DatePicker fx:id="df_application" layoutX="311.0" layoutY="25.0" prefHeight="25.0" prefWidth="104.0" />
+            <DatePicker fx:id="df_cancel" layoutX="422.0" layoutY="25.0" prefHeight="25.0" prefWidth="104.0" />
+            <ChoiceBox fx:id="cb_user" layoutX="107.0" layoutY="25.0" prefHeight="25.0" prefWidth="87.0" />
+            <Label layoutX="14.0" layoutY="6.0" text="Kolegij:" />
+            <Label layoutX="109.0" layoutY="6.0" text="Korisnik:" />
+            <Label layoutX="203.0" layoutY="6.0" text="Datum ispita:" />
+            <Label layoutX="314.0" layoutY="6.0" text="Prijava do:" />
+            <Label layoutX="422.0" layoutY="6.0" text="Odjava do:" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="295.0" prefWidth="600.0">
+         <children>
+            <TableView fx:id="tb_all_ed" layoutY="-7.0" onMouseClicked="#selectExam_deadline" prefHeight="304.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="col_coll" prefWidth="117.0" text="Kolegij" />
+                <TableColumn fx:id="col_user" prefWidth="120.0" text="Korisnik" />
+                  <TableColumn fx:id="col_ed" prefWidth="123.0" text="Datum ispita" />
+                  <TableColumn fx:id="col_apply" prefWidth="120.0" text="Prijava do" />
+                  <TableColumn fx:id="col_cancel" prefWidth="119.0" text="Odjava do" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
    </children>
 </VBox>
